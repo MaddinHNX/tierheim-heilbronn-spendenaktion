@@ -6,6 +6,14 @@
  * zentralen Stelle gepflegt und angepasst werden.
  */
 
+export const IMAGES = {
+  heroDog: './images/hero_dog.jpg',
+  patenschaft: './images/card_patenschaft.jpg',
+  cat: './images/card_cat.jpg',
+  foodBowl: './images/card_food_bowl.jpg',
+  bunny: './images/shelter_bunny.jpg',
+};
+
 export const DONATION_LINKS = {
   // Option A: Offizielle Spendenseite / Betterplace des Tierheims Heilbronn
   directDonation: 'https://www.heilbronner-tierschutz.de/unterstuetzung/spenden/',
@@ -14,7 +22,7 @@ export const DONATION_LINKS = {
   sponsorship: 'https://www.heilbronner-tierschutz.de/unterstuetzung/patenschaft/',
   
   // PayPal Spendenlink (öffnet PayPal mit der offiziellen Vereinsadresse)
-  paypalUrl: 'https://www.paypal.com/donate/?hosted_button_id=7R9T68R77DF9N', // Direkte Spendenadresse
+  paypalUrl: 'https://www.paypal.com/donate/?hosted_button_id=7R9T68R77DF9N',
   paypalEmail: 'paypal@heilbronner-tierschutz.de',
   
   // Offizielle Vereinswebseite
@@ -58,6 +66,8 @@ export const ARGUMENT_ITEMS = [
     badge: 'Sinnvoll schenken',
     actionLabel: 'Patenschaft verschenken',
     actionType: 'sponsorship' as const,
+    image: IMAGES.patenschaft,
+    imageAlt: 'Niedlicher Tierheim-Welpe mit Patenschaftsurkunde',
   },
   {
     id: 'abo-check',
@@ -67,6 +77,8 @@ export const ARGUMENT_ITEMS = [
     badge: 'Monatlicher Beitrag',
     actionLabel: 'Dauerauftrag / Spende einrichten',
     actionType: 'direct' as const,
+    image: IMAGES.cat,
+    imageAlt: 'Tierheim-Katze entspannt auf warmer Decke',
   },
   {
     id: 'smashburger-check',
@@ -76,6 +88,8 @@ export const ARGUMENT_ITEMS = [
     badge: 'Voller Napf garantiert',
     actionLabel: 'Jetzt 15 € oder mehr spenden',
     actionType: 'direct' as const,
+    image: IMAGES.foodBowl,
+    imageAlt: 'Glücklicher Hund mit vollem Futternapf',
   },
 ];
 
@@ -109,7 +123,7 @@ export const IMPACT_TIERS = [
 
 export const LEGAL_NOTICE_DATA = {
   operatorName: 'Private Unterstützerinitiative / Freundeskreis Tierheim Heilbronn',
-  contactEmail: 'kontakt@tierheim-heilbronn-unterstuetzer.de', // Platzhalter
-  contactCity: '74072 Heilbronn',
+  contactEmail: 'kontakt@tierheim-heilbronn-unterstuetzer.de',
+  contactCity: '74078 Heilbronn',
   disclaimer: 'Dies ist eine privat und unentgeltlich betriebene Unterstützungs-Website im Rahmen des ausgefallenen Adventssamstags 2026. Sie steht in keiner gewerblichen Verbindung zum Verein und sammelt selbst keine Gelder ein. Sämtliche Links leiten ohne Abzüge direkt auf die offiziellen Webseiten und Konten des Tierschutzvereins Heilbronn und Umgebung e.V. weiter.',
 };

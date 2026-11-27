@@ -1,6 +1,6 @@
 import React from 'react';
 import { Apple, HeartPulse, Stethoscope, Dog, Cat, Bird, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
-import { CAMPAIGN_INFO, IMPACT_TIERS } from '../config/campaign';
+import { CAMPAIGN_INFO, IMPACT_TIERS, IMAGES } from '../config/campaign';
 
 interface ImpactSectionProps {
   onSelectAmount?: (amount: number) => void;
@@ -43,61 +43,85 @@ export const ImpactSection: React.FC<ImpactSectionProps> = ({ onSelectAmount }) 
             Wofür das Tierheim Heilbronn deine Hilfe braucht
           </h2>
           <p className="mt-3.5 text-stone-600 text-sm sm:text-base leading-relaxed">
-            Hinter den Mauern an den Böllinger Höfen schlagen Hunderte kleine Herzen.
+            Hinter den Toren an den Böllinger Höfen schlagen Hunderte kleine Herzen.
             Jeder Euro fließt zu 100 % in die Versorgung, tierärztliche Betreuung und ein sicheres Dach über dem Kopf.
           </p>
         </div>
 
-        {/* Infoblock: Schützlinge im Überblick */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/90 shadow-sm mb-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="max-w-xl text-center lg:text-left">
-              <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">
+        {/* Infoblock: Schützlinge im Überblick with Shelter Visual */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-stone-200/90 shadow-sm mb-12 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Text & Statistics (7 cols) */}
+            <div className="lg:col-span-7">
+              <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-1">
                 Laufende Betreuung & Zufluchtsort
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mt-1 mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-stone-900 mb-3">
                 Verlässliche Heimat für Tiere im gesamten Landkreis Heilbronn
               </h3>
-              <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-                Das Tierheim Heilbronn ({CAMPAIGN_INFO.shelterLocation}) ist 365 Tage im Jahr im Einsatz. 
-                Ohne die Einnahmen des traditionellen Adventssamstags fehlen lebenswichtige Mittel für die Wintermonate.
+              <p className="text-stone-600 text-sm sm:text-base leading-relaxed mb-6">
+                Das Tierheim Heilbronn ({CAMPAIGN_INFO.shelterLocation}) ist an 365 Tagen im Jahr unermüdlich im Einsatz. 
+                Ohne die fest eingeplanten Einnahmen des beliebten Adventssamstags fehlen lebenswichtige Mittel für die nasskalten Wintermonate.
               </p>
+
+              {/* Animal Statistics Badges */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-3 text-center">
+                  <Dog className="w-5 h-5 text-amber-700 mx-auto mb-1" />
+                  <span className="block text-xl font-extrabold text-stone-900">
+                    {CAMPAIGN_INFO.stats.dogs}
+                  </span>
+                  <span className="text-xs font-medium text-stone-600">Hunde</span>
+                </div>
+
+                <div className="bg-orange-50/70 border border-orange-200/80 rounded-2xl p-3 text-center">
+                  <Cat className="w-5 h-5 text-orange-700 mx-auto mb-1" />
+                  <span className="block text-xl font-extrabold text-stone-900">
+                    {CAMPAIGN_INFO.stats.cats}
+                  </span>
+                  <span className="text-xs font-medium text-stone-600">Katzen</span>
+                </div>
+
+                <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-3 text-center">
+                  <Bird className="w-5 h-5 text-emerald-700 mx-auto mb-1" />
+                  <span className="block text-xl font-extrabold text-stone-900">
+                    {CAMPAIGN_INFO.stats.birds}
+                  </span>
+                  <span className="text-xs font-medium text-stone-600">Vögel</span>
+                </div>
+
+                <div className="bg-sky-50/70 border border-sky-200/80 rounded-2xl p-3 text-center">
+                  <Sparkles className="w-5 h-5 text-sky-700 mx-auto mb-1" />
+                  <span className="block text-xl font-extrabold text-stone-900">
+                    {CAMPAIGN_INFO.stats.smallAnimals}
+                  </span>
+                  <span className="text-xs font-medium text-stone-600">Kleintiere/Exoten</span>
+                </div>
+              </div>
             </div>
 
-            {/* Animal Statistics Badges */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full lg:w-auto shrink-0">
-              <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 text-center">
-                <Dog className="w-5 h-5 text-amber-700 mx-auto mb-1.5" />
-                <span className="block text-xl sm:text-2xl font-extrabold text-stone-900">
-                  {CAMPAIGN_INFO.stats.dogs}
-                </span>
-                <span className="text-xs font-medium text-stone-600">Hunde</span>
-              </div>
-
-              <div className="bg-orange-50/70 border border-orange-200/80 rounded-2xl p-3.5 sm:p-4 text-center">
-                <Cat className="w-5 h-5 text-orange-700 mx-auto mb-1.5" />
-                <span className="block text-xl sm:text-2xl font-extrabold text-stone-900">
-                  {CAMPAIGN_INFO.stats.cats}
-                </span>
-                <span className="text-xs font-medium text-stone-600">Katzen</span>
-              </div>
-
-              <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-3.5 sm:p-4 text-center">
-                <Bird className="w-5 h-5 text-emerald-700 mx-auto mb-1.5" />
-                <span className="block text-xl sm:text-2xl font-extrabold text-stone-900">
-                  {CAMPAIGN_INFO.stats.birds}
-                </span>
-                <span className="text-xs font-medium text-stone-600">Vögel</span>
-              </div>
-
-              <div className="bg-sky-50/70 border border-sky-200/80 rounded-2xl p-3.5 sm:p-4 text-center">
-                <Sparkles className="w-5 h-5 text-sky-700 mx-auto mb-1.5" />
-                <span className="block text-xl sm:text-2xl font-extrabold text-stone-900">
-                  {CAMPAIGN_INFO.stats.smallAnimals}
-                </span>
-                <span className="text-xs font-medium text-stone-600">Kleintiere/Exoten</span>
+            {/* Visual Photo Card (5 cols) */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-2xl overflow-hidden border-2 border-stone-200 shadow-md group">
+                <img
+                  src={IMAGES.bunny}
+                  alt="Kleintiere und Schützlinge im Tierheim Heilbronn"
+                  className="w-full h-56 sm:h-64 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-300 block">
+                    Schützlinge an den Böllinger Höfen
+                  </span>
+                  <p className="text-xs sm:text-sm font-medium">
+                    Auch Kaninchen, Meerschweinchen & Exoten erhalten liebevolle Pflege.
+                  </p>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
 

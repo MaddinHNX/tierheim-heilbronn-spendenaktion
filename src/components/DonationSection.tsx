@@ -12,7 +12,7 @@ import {
   HelpCircle,
   FileText
 } from 'lucide-react';
-import { DONATION_LINKS, BANK_DETAILS } from '../config/campaign';
+import { DONATION_LINKS, BANK_DETAILS, IMAGES } from '../config/campaign';
 
 interface DonationSectionProps {
   selectedAmount?: number | null;
@@ -66,7 +66,7 @@ export const DonationSection: React.FC<DonationSectionProps> = ({ selectedAmount
 
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-sm shrink-0">
                   <Heart className="w-6 h-6 fill-white" />
                 </div>
                 <div>
@@ -76,6 +76,19 @@ export const DonationSection: React.FC<DonationSectionProps> = ({ selectedAmount
                   <h3 className="text-xl sm:text-2xl font-bold text-stone-900 leading-snug">
                     Direkt spenden (Betterplace / Vereinsseite)
                   </h3>
+                </div>
+              </div>
+
+              <div className="relative h-28 w-full rounded-2xl overflow-hidden mb-4 border border-amber-200/80 shadow-2xs">
+                <img
+                  src={IMAGES.foodBowl}
+                  alt="Glücklicher Hund mit vollem Napf"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-stone-900/60 to-transparent flex items-center px-4">
+                  <span className="text-white text-xs sm:text-sm font-semibold drop-shadow-sm">
+                    Füllt die Näpfe im Tierheim Heilbronn
+                  </span>
                 </div>
               </div>
 
@@ -119,7 +132,7 @@ export const DonationSection: React.FC<DonationSectionProps> = ({ selectedAmount
 
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-stone-100 border border-stone-200 text-stone-800 flex items-center justify-center shadow-2xs">
+                <div className="w-12 h-12 rounded-2xl bg-stone-100 border border-stone-200 text-stone-800 flex items-center justify-center shadow-2xs shrink-0">
                   <Gift className="w-6 h-6 text-amber-700" />
                 </div>
                 <div>
@@ -129,6 +142,19 @@ export const DonationSection: React.FC<DonationSectionProps> = ({ selectedAmount
                   <h3 className="text-xl sm:text-2xl font-bold text-stone-900 leading-snug">
                     Tierpatenschaft verschenken
                   </h3>
+                </div>
+              </div>
+
+              <div className="relative h-28 w-full rounded-2xl overflow-hidden mb-4 border border-stone-200 shadow-2xs">
+                <img
+                  src={IMAGES.patenschaft}
+                  alt="Patenschaft als sinnvolles Weihnachtsgeschenk"
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-stone-900/60 to-transparent flex items-center px-4">
+                  <span className="text-white text-xs sm:text-sm font-semibold drop-shadow-sm">
+                    Inkl. Urkunde zum Ausdrucken & Verschenken
+                  </span>
                 </div>
               </div>
 
